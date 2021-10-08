@@ -1,0 +1,32 @@
+[package]
+name = "semspac"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# you can add features like rocksdb or blocking if you want
+# but DO NOT add `reqwest_async`, `reqwest_blocking` or `surf_async`.
+# arangors = { version = "*", default-features = false }
+
+# arangors = { version = "0.5", features = ["blocking"], default-features = false }
+# anyhow = "1"
+# reqwest = { version = "0.11", features = [ "blocking", "json", "rustls-tls" ], default-features = false }
+tokio = { version = "1", features = [ "macros", "rt-multi-thread" ] }
+aragog = { version = "0.14", features = ["default"], default-features = false }
+
+serde = { version = "*", features = ["derive"]}
+
+env_logger = "0.9"
+
+[dev-dependencies.tokio]
+version = "1"
+features = [ "macros", "rt-multi-thread"]
+
+
+# required dependencies for ReqwestClient
+# reqwest = { version = "0.11", features = [ "gzip", "json", "rustls-tls" ], default-features = false }
+# async-trait = "0.1"
+# http = "0.2"
+# uclient = "*"
